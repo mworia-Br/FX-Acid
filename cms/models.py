@@ -6,11 +6,11 @@ from django.contrib.auth.models import User
 class Systems(models.Model):
     name = models.CharField(max_length=50 ,blank=True, null=True)
     short_description = models.CharField(max_length=100 ,blank=True, null=True)
-    pricing = models.DecimalField(decimal_places=2 ,blank=True, null=True)
+    pricing = models.DecimalField(max_digits=15, decimal_places=2 ,blank=True, null=True)
     roi = models.CharField(max_length=50 ,blank=True, null=True)
     LastProfit = models.CharField(max_length=50 ,blank=True, null=True)
     LastProfitWinRate = models.CharField(max_length=50 ,blank=True, null=True)
-    TotalProfits = models.DecimalField(decimal_places=4 ,blank=True, null=True)
+    TotalProfits = models.DecimalField(max_digits=15, decimal_places=4 ,blank=True, null=True)
     TotalCopyTraders = models.CharField(max_length=50 ,blank=True, null=True)
     AUM = models.CharField(max_length=50 ,blank=True, null=True)
     telegram = models.CharField(max_length=200 ,blank=True, null=True)
