@@ -1,11 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib import admin
 
 # Create your models here.
 
-class Systems(models.Model):
+class System(models.Model):
     name = models.CharField(max_length=50 ,blank=True, null=True)
-    short_description = models.CharField(max_length=100 ,blank=True, null=True)
+    trading_style = models.CharField(max_length=100 ,blank=True, null=True)
     pricing = models.DecimalField(max_digits=15, decimal_places=2 ,blank=True, null=True)
     roi = models.CharField(max_length=50 ,blank=True, null=True)
     LastProfit = models.CharField(max_length=50 ,blank=True, null=True)
@@ -21,6 +22,9 @@ class Systems(models.Model):
     youtube_visible = models.BooleanField(default=False, null=False)
     full = models.BooleanField(default=False, null=False)
 
+class SystemData(models.Model):
+    name = models.ForeignKey(System, verbose_name="System", on_delete=models.CASCADE)
+
 STATUS_CHOICES = (
     ('Not Paid', 'Not Paid'),
     ('Paid', 'Paid'),
@@ -32,7 +36,7 @@ STATUS_CHOICES = (
 
 class Cart(models.Model):
     user = models.ForeignKey(User, verbose_name="User", on_delete=models.CASCADE)
-    system = models.ForeignKey(Systems, verbose_name="Systems", on_delete=models.CASCADE)
+    system = models.ForeignKey(System, verbose_name="System", on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Created Date")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Updated Date")
 
@@ -45,11 +49,11 @@ class Cart(models.Model):
         return self.system.pricing
     
 
-class CopyTraders(models.Model):
+class CopyTrader(models.Model):
     user = models.ForeignKey(User, verbose_name="User", on_delete=models.CASCADE)
     orderid = models.CharField(max_length=255, null=True, blank=True, verbose_name="Unique order ID")
     ordered_date = models.DateTimeField(auto_now_add=True, verbose_name="Ordered Date")
-    system = models.ForeignKey(Systems, verbose_name="Systems", on_delete=models.CASCADE)
+    system = models.ForeignKey(System, verbose_name="System", on_delete=models.CASCADE)
     status = models.CharField(
         choices=STATUS_CHOICES,
         max_length=50,
@@ -58,5 +62,29 @@ class CopyTraders(models.Model):
     
     @property
     def valid_till(self):
-        return self.ordered_date  #implement logic to add validitty period
+        return self.ordered_date  #implement logic to add validitty 
     
+class Wallet(models.Model):
+    user = models.ForeignKey(User, verbose_name="User", on_delete=models.CASCADE)
+    balance = models.DecimalField(max_digits=15, decimal_places=2 ,blank=False, null=True)
+
+TRANSACTION_CHOICES = (
+    ('Deposit', 'Deposit'),
+    ('Transfer', 'Transfer'),
+    ('Withdraw', 'Withdraw'),
+)
+
+class Transaction(models.Model):
+    wallet = models.ForeignKey(Wallet, verbose_name="Wallet", on_delete=models.CASCADE)
+    amount = models.DecimalField(max_digits=15, decimal_places=2 ,blank=False, null=True)
+    transaction_type = models.CharField(
+        choices=TRANSACTION_CHOICES,
+        max_length=50,
+        default="Not Paid"
+        )
+
+    
+admin.site.register(System)
+admin.site.register(SystemData)
+admin.site.register(Cart)
+admin.site.register(CopyTrader)
