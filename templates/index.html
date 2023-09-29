@@ -57,7 +57,7 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav mx-auto py-0">
                         <a href=" {% url 'index' %} " class="nav-item nav-link active">Home</a>
-                        <a href=" {% url 'index' %} " class="nav-item nav-link">About</a>
+                        <a href=" {% url 'index' %} " class="nav-item nav-link">Buy Crypto</a>
                         <a href="{% url 'services' %}" class="nav-item nav-link">Service</a>
                         <a href="{% url 'systems' %}" class="nav-item nav-link">Systems</a>
                         <a href=" {% url 'contact' %} " class="nav-item nav-link">Contact</a>
@@ -66,10 +66,12 @@
                         <a href="#" class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block" data-bs-toggle="dropdown">My Account</a>
                         <div class="dropdown-menu m-0">
                             <a href=" {% static 'team.html' %} " class="dropdown-item">Profile</a>
-                            <a href=" {% static 'team.html' %} " class="dropdown-item">Systems</a>
+                            <a href=" {% static 'team.html' %} " class="dropdown-item">My System(s)</a>
                             <a href=" {% static 'testimonial.html' %} " class="dropdown-item">Wallet</a>
+                            <a href=" {% static 'testimonial.html' %} " class="dropdown-item">Messages</a>
+                            <a href=" {% static 'testimonial.html' %} " class="dropdown-item">Change Password</a>
                             <li class="dropdown-item"> </li>
-                            <a href=" {% static '404.html' %} " class="dropdown-item">Sign Out</a>
+                            <a href=" {% static '404.html' %} " class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>
