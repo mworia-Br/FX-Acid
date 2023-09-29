@@ -83,8 +83,27 @@ class Transaction(models.Model):
         default="Not Paid"
         )
 
+class Service(models.Model):
+    title = models.CharField(max_length=150, verbose_name="Service Title")
+    slug = models.SlugField(max_length=160, verbose_name="Service Slug")
+    short_description = models.TextField(verbose_name="Short Description")
+    detail_description = models.TextField(blank=True, null=True, verbose_name="Detail Description")
+    service_image = models.ImageField(upload_to='service', blank=True, null=True, verbose_name="Service Image")
+    is_active = models.BooleanField(verbose_name="Is Active?")
+    is_featured = models.BooleanField(verbose_name="Is Featured?")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Created Date")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="Updated Date")
+
+    class Meta:
+        verbose_name_plural = 'Services'
+        ordering = ('-created_at', )
+
+    def __str__(self):
+        return self.title
+
     
 admin.site.register(System)
 admin.site.register(SystemData)
 admin.site.register(Cart)
 admin.site.register(CopyTrader)
+admin.site.register(Service)
