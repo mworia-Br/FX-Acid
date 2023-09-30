@@ -35,52 +35,32 @@
     <div class="forms">
       <div class="form-content">
         <div class="login-form">
-          <div class="title">Login</div>
-          <form method="post" action="{% url 'cms:login' %}">
-            <div class="input-boxes">
-              <div class="input-box">
-                <i class="fas fa-envelope"></i>
-                {{ form.username }}
-              </div>
-              <div class="input-box">
-                <i class="fas fa-lock"></i>
-                {{ form.password }}
-              </div>
-              <div class="text"><a href="{% url 'cms:password-reset' %}">Forgot password?</a></div>
-              <div class="button input-box">
-                <input type="submit" value="Submit">
-              </div>
-              <div class="text sign-up-text">Don't have an account? <a href="{% url 'your_signup_url' %}">Signup now</a>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="signup-form">
-          <div class="title">Signup</div>
+          <div class="title">Register</div>
           <form method="post" action="{% url 'cms:register' %}">
+            {% csrf_token %}
             <div class="input-boxes">
               <div class="input-box">
                 <i class="fas fa-user"></i>
-                <input type="text" placeholder="Username" required>
+                {{ form.username }}
               </div>
               <div class="input-box">
                 <i class="fas fa-envelope"></i>
-                <input type="text" placeholder="Email" required>
+                {{ form.email }}
               </div>
               <div class="input-box">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Password" required>
+                {{ form.password1 }}
               </div>
               <div class="input-box">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Confirm Password" required>
+                {{ form.password2 }}
               </div>
               <div class="button input-box">
                 <input type="submit" value="Submit">
               </div>
-              <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
+              <div class="text sign-up-text">Already have an account? <a href="{% url 'cms:login' %}">Login now</a></div>
             </div>
-          </form>
+          </form>        
         </div>
       </div>
     </div>

@@ -37,6 +37,7 @@
         <div class="login-form">
           <div class="title">Login</div>
           <form method="post" action="{% url 'cms:login' %}">
+            {% csrf_token %}
             <div class="input-boxes">
               <div class="input-box">
                 <i class="fas fa-envelope"></i>
@@ -50,35 +51,8 @@
               <div class="button input-box">
                 <input type="submit" value="Submit">
               </div>
-              <div class="text sign-up-text">Don't have an account? <a href="{% url 'your_signup_url' %}">Signup now</a>
+              <div class="text sign-up-text">Don't have an account? <a href="{% url 'cms:register' %}">Signup now</a>
               </div>
-            </div>
-          </form>
-        </div>
-        <div class="signup-form">
-          <div class="title">Signup</div>
-          <form method="post" action="{% url 'cms:register' %}">
-            <div class="input-boxes">
-              <div class="input-box">
-                <i class="fas fa-user"></i>
-                <input type="text" placeholder="Username" required>
-              </div>
-              <div class="input-box">
-                <i class="fas fa-envelope"></i>
-                <input type="text" placeholder="Email" required>
-              </div>
-              <div class="input-box">
-                <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Password" required>
-              </div>
-              <div class="input-box">
-                <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Confirm Password" required>
-              </div>
-              <div class="button input-box">
-                <input type="submit" value="Submit">
-              </div>
-              <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
             </div>
           </form>
         </div>

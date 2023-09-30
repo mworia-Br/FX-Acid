@@ -9,6 +9,7 @@ urlpatterns = [
     path('', views.IndexView, name="index"),
     path('accounts/register/', views.RegistrationView.as_view(), name="register"),
     path('accounts/login/', auth_views.LoginView.as_view(template_name='login.html', authentication_form=LoginForm), name="login"),
+    path('accounts/logout/', auth_views.LogoutView.as_view(), name="logout"),
 
     path('accounts/password-change/', auth_views.PasswordChangeView.as_view(template_name='password_change.html', form_class=PasswordChangeForm, success_url='/accounts/password-change-done/'), name="password-change"),
     path('accounts/password-change-done/', auth_views.PasswordChangeDoneView.as_view(template_name='password_change_done.html'), name="password-change-done"),
