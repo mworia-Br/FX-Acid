@@ -4,6 +4,7 @@ from .forms import RegistrationForm
 from django.contrib import messages
 from django.views import View
 from django.http import HttpResponse, request
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -24,7 +25,7 @@ class RegistrationView(View):
         
         return redirect('cms:login')
 
-
+@login_required
 def IndexView(request):
     return render(request, 'index.html')
 
