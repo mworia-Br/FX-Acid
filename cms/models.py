@@ -20,6 +20,8 @@ class System(models.Model):
     discord_visible = models.BooleanField(default=False, null=False)
     youtube = models.CharField(max_length=200 ,blank=True, null=True)
     youtube_visible = models.BooleanField(default=False, null=False)
+    twitch = models.CharField(max_length=200 ,blank=True, null=True)
+    twitch_visible = models.BooleanField(default=False, null=False)
     full = models.BooleanField(default=False, null=False)
 
 class SystemData(models.Model):
@@ -80,7 +82,7 @@ class Transaction(models.Model):
     transaction_type = models.CharField(
         choices=TRANSACTION_CHOICES,
         max_length=50,
-        default="Not Paid"
+        default='Deposit'
         )
 
 class Service(models.Model):

@@ -1,11 +1,11 @@
-  =>  Template Name    : COIBase - Digital Asset Management Agency
+  =>  Template Name    : HARPOCRATES FX - Digital Asset Management Agency
 
-  =>  Template Link    : https://htmlcodex.com/digital-agency-html-template
+  =>  Template Link    : https://mworia.pythonanywhere.com/digital-agency-html-template
 
-  =>  Template License : https://htmlcodex.com/license (or read the LICENSE.txt file)
+  =>  Template License : https://mworia.pythonanywhere.com/license (or read the LICENSE.txt file)
 
-  =>  Template Author  : HTML Codex
+  =>  Template Author  : Bray
 
-  =>  Author Website   : https://htmlcodex.com
+  =>  Author Website   : https://mworia.pythonanywhere.com
 
-  =>  About HTML Codex : HTML Codex is one of the top creators and publishers of Free HTML templates, HTML landing pages, HTML email templates and HTML snippets in the world. Read more at ( https://htmlcodex.com/about-us )
+  =>  About Bray : Bray is one of the top creators and publishers of Free HTML templates, HTML landing pages, HTML email templates and HTML snippets in the world. Read more at ( https://mworia.pythonanywhere.com/about-us )

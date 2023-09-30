@@ -4,7 +4,7 @@
 <head>
     {% load static %}
     <meta charset="utf-8">
-    <title>COIBase - Digital Asset Management Agency</title>
+    <title>HARPOCRATES FX - Digital Asset Management Agency</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -47,20 +47,20 @@
         <!-- Navbar & Hero Start -->
         <div class="container-xxl position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-                <a href="#" class="navbar-brand p-0">
-                    <h1 class="m-0">COIBase</h1>
-                    <!-- <img src=" {% static 'img/logo.png' %} " alt="Logo"> -->
+                <a href="{% url 'cms:index' %}" class="navbar-brand p-0">
+                    <!-- <h1 class="m-0">HARPOCRATES FX</h1> -->
+                    <img src=" {% static 'img/Harpocrates Fx_Vector-1-01.png' %} " alt="Logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav mx-auto py-0">
-                        <a href=" {% url 'index' %} " class="nav-item nav-link active">Home</a>
-                        <a href=" {% url 'index' %} " class="nav-item nav-link">Buy Crypto</a>
-                        <a href="{% url 'services' %}" class="nav-item nav-link">Service</a>
-                        <a href="{% url 'systems' %}" class="nav-item nav-link">Systems</a>
-                        <a href=" {% url 'contact' %} " class="nav-item nav-link">Contact</a>
+                        <a href=" {% url 'cms:index' %} " class="nav-item nav-link active">Home</a>
+                        <a href=" {% url 'cms:index' %} " class="nav-item nav-link">Buy Crypto</a>
+                        <a href="{% url 'cms:services' %}" class="nav-item nav-link">Service</a>
+                        <a href="{% url 'cms:systems' %}" class="nav-item nav-link">Systems</a>
+                        <a href="{% url 'cms:contact' %}" class="nav-item nav-link">Contact</a>
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block" data-bs-toggle="dropdown">My Account</a>
@@ -81,13 +81,13 @@
                 <div class="container my-5 py-5 px-lg-5">
                     <div class="row g-5 py-5">
                         <div class="col-12 text-center">
-                            <h1 class="text-white animated slideInDown">Project</h1>
+                            <h1 class="text-white animated slideInDown">Systems</h1>
                             <hr class="bg-white mx-auto mt-0" style="width: 90px;">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb justify-content-center">
                                     <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
                                     <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                                    <li class="breadcrumb-item text-white active" aria-current="page">Project</li>
+                                    <li class="breadcrumb-item text-white active" aria-current="page">Systems</li>
                                 </ol>
                             </nav>
                         </div>
@@ -102,106 +102,52 @@
         <div class="container-xxl py-5">
             <div class="container py-5 px-lg-5">
                 <div class="wow fadeInUp" data-wow-delay="0.1s">
-                    <p class="section-title text-secondary justify-content-center"><span></span>Our Projects<span></span></p>
-                    <h1 class="text-center mb-5">Recently Completed Projects</h1>
-                </div>
-                <div class="row mt-n2 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="col-12 text-center">
-                        <ul class="list-inline mb-5" id="portfolio-flters">
-                            <li class="mx-2 active" data-filter="*">All</li>
-                            <li class="mx-2" data-filter=".first">Web Design</li>
-                            <li class="mx-2" data-filter=".second">Graphic Design</li>
-                        </ul>
-                    </div>
+                    <p class="section-title text-secondary justify-content-center"><span></span>OUR SYSTEMS<span></span></p>
+                    <h1 class="text-center mb-5">Start trading and experience the best cryptocurrency journey</h1>
                 </div>
                 <div class="row g-4 portfolio-container">
                     <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.1s">
                         <div class="rounded overflow-hidden">
                             <div class="position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src=" {% static 'img/portfolio-1.jpg' %} " alt="">
+                                <img class="img-fluid w-100" src=" {% static 'img/cryptograph.jpg' %} " alt="">
                                 <div class="portfolio-overlay">
-                                    <a class="btn btn-square btn-outline-light mx-1" href=" {% static 'img/portfolio-1.jpg' %} " data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href=" {% static '' %} "><i class="fa fa-link"></i></a>
+                                    <a class="btn btn-square btn-outline-light mx-1" href=" {% static 'img/cryptograph.jpg' %} " data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                                    <a class="btn btn-square btn-outline-light mx-1" href="#"><i class="fa fa-link"></i></a>
                                 </div>
                             </div>
                             <div class="bg-light p-4">
-                                <p class="text-primary fw-medium mb-2">UI / UX Design</p>
-                                <h5 class="lh-base mb-0">Digital Agency Website Design And Development</a>
+                                <p class="text-primary fw-medium mb-2">UI / UX System1 Design</p>
+                                <h5 class="lh-base mb-0">Start trading and experience the best cryptocurrency journey</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.3s">
                         <div class="rounded overflow-hidden">
                             <div class="position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src=" {% static 'img/portfolio-2.jpg' %} " alt="">
+                                <img class="img-fluid w-100" src=" {% static 'img/cryptograph.jpg' %} " alt="">
                                 <div class="portfolio-overlay">
-                                    <a class="btn btn-square btn-outline-light mx-1" href=" {% static 'img/portfolio-2.jpg' %} " data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href=" {% static '' %} "><i class="fa fa-link"></i></a>
+                                    <a class="btn btn-square btn-outline-light mx-1" href=" {% static 'img/cryptograph.jpg' %} " data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                                    <a class="btn btn-square btn-outline-light mx-1" href="#"><i class="fa fa-link"></i></a>
                                 </div>
                             </div>
                             <div class="bg-light p-4">
-                                <p class="text-primary fw-medium mb-2">UI / UX Design</p>
-                                <h5 class="lh-base mb-0">Digital Agency Website Design And Development</a>
+                                <p class="text-primary fw-medium mb-2">UI / UX System2 Design</p>
+                                <h5 class="lh-base mb-0">Start trading and experience the best cryptocurrency journey</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.5s">
                         <div class="rounded overflow-hidden">
                             <div class="position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src=" {% static 'img/portfolio-3.jpg' %} " alt="">
+                                <img class="img-fluid w-100" src=" {% static 'img/cryptograph.jpg' %} " alt="">
                                 <div class="portfolio-overlay">
-                                    <a class="btn btn-square btn-outline-light mx-1" href=" {% static 'img/portfolio-3.jpg' %} " data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href=" {% static '' %} "><i class="fa fa-link"></i></a>
+                                    <a class="btn btn-square btn-outline-light mx-1" href=" {% static 'img/cryptograph.jpg' %} " data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                                    <a class="btn btn-square btn-outline-light mx-1" href="#"><i class="fa fa-link"></i></a>
                                 </div>
                             </div>
                             <div class="bg-light p-4">
-                                <p class="text-primary fw-medium mb-2">UI / UX Design</p>
-                                <h5 class="lh-base mb-0">Digital Agency Website Design And Development</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="rounded overflow-hidden">
-                            <div class="position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src=" {% static 'img/portfolio-4.jpg' %} " alt="">
-                                <div class="portfolio-overlay">
-                                    <a class="btn btn-square btn-outline-light mx-1" href=" {% static 'img/portfolio-4.jpg' %} " data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href=" {% static '' %} "><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                            <div class="bg-light p-4">
-                                <p class="text-primary fw-medium mb-2">UI / UX Design</p>
-                                <h5 class="lh-base mb-0">Digital Agency Website Design And Development</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="rounded overflow-hidden">
-                            <div class="position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src=" {% static 'img/portfolio-5.jpg' %} " alt="">
-                                <div class="portfolio-overlay">
-                                    <a class="btn btn-square btn-outline-light mx-1" href=" {% static 'img/portfolio-5.jpg' %} " data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href=" {% static '' %} "><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                            <div class="bg-light p-4">
-                                <p class="text-primary fw-medium mb-2">UI / UX Design</p>
-                                <h5 class="lh-base mb-0">Digital Agency Website Design And Development</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="rounded overflow-hidden">
-                            <div class="position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src=" {% static 'img/portfolio-6.jpg' %} " alt="">
-                                <div class="portfolio-overlay">
-                                    <a class="btn btn-square btn-outline-light mx-1" href=" {% static 'img/portfolio-6.jpg' %} " data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href=" {% static '' %} "><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                            <div class="bg-light p-4">
-                                <p class="text-primary fw-medium mb-2">UI / UX Design</p>
-                                <h5 class="lh-base mb-0">Digital Agency Website Design And Development</a>
+                                <p class="text-primary fw-medium mb-2">UI / UX System3 Design</p>
+                                <h5 class="lh-base mb-0">Start trading and experience the best cryptocurrency journey</a>
                             </div>
                         </div>
                     </div>
@@ -239,13 +185,13 @@
                         <p class="section-title text-white h5 mb-4">Gallery<span></span></p>
                         <div class="row g-2">
                             <div class="col-4">
-                                <img class="img-fluid" src=" {% static 'img/portfolio-1.jpg' %} " alt="Image">
+                                <img class="img-fluid" src=" {% static 'img/cryptograph.jpg' %} " alt="Image">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid" src=" {% static 'img/portfolio-2.jpg' %} " alt="Image">
+                                <img class="img-fluid" src=" {% static 'img/cryptograph.jpg' %} " alt="Image">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid" src=" {% static 'img/portfolio-3.jpg' %} " alt="Image">
+                                <img class="img-fluid" src=" {% static 'img/cryptograph.jpg' %} " alt="Image">
                             </div>
                             <div class="col-4">
                                 <img class="img-fluid" src=" {% static 'img/portfolio-4.jpg' %} " alt="Image">
@@ -274,8 +220,8 @@
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                             &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved. 
 							
-							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-							Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://mworia.pythonanywhere.com/credit-removal". Thank you for your support. ***/-->
+							Designed By <a class="border-bottom" href="https://mworia.pythonanywhere.com">Bray</a>
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">
