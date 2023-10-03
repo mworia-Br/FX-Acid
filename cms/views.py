@@ -29,7 +29,8 @@ class RegistrationView(View):
 @login_required
 def IndexView(request):
     services = Service.objects.all()
-    return render(request, 'index.html', {'services': services})
+    traders = System.objects.all()
+    return render(request, 'index.html', {'services': services, 'traders': traders})
 
 def accounts(request):
     return render(request, 'login&signup.html')
@@ -42,7 +43,8 @@ def ServiceView(request):
     return render(request, 'service.html', {'services': services})
 
 def SystemView(request):
-    return render(request, 'project.html')
+    traders = System.objects.all()
+    return render(request, 'project.html', {'traders': traders})
 
 def ContactView(request):
     return render(request, 'contact.html')

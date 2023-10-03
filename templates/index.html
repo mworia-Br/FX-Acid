@@ -280,67 +280,48 @@
           <p class="section-title text-secondary justify-content-center"><span></span>Our Services<span></span></p>
           <h1 class="text-center mb-5">What Solutions We Provide</h1>
         </div>
-        <div class="row g-4">
-          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="service-item d-flex flex-column text-center rounded">
-              <div class="service-icon flex-shrink-0">
-                <i class="fa fa-mail-bulk fa-2x"></i>
+    
+        {% if services %}
+          <div class="row g-4">
+            {% for service in services %}
+              <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item d-flex flex-column text-center rounded">
+                  <div class="service-icon flex-shrink-0">
+                    <i class="{{ service.icon_class }} fa-2x"></i>
+                  </div>
+                  <h5 class="mb-3">{{ service.title }}</h5>
+                  <p class="m-0">{{ service.short_description }}</p>
+                  <a class="btn btn-square" href="#" onclick="openModal('modal{{ service.id }}')"><i class="fa fa-arrow-right"></i></a>
+                </div>
               </div>
-              <h5 class="mb-3">Service1</h5>
-              <p class="m-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet
-                lorem.</p>
-              <a class="btn btn-square" href="#" onclick="openModal('modal2')"><i class="fa fa-arrow-right"></i></a>
-            </div>
-          </div>
-          <!-- The modal -->
-          <div id="modal1" class="modal">
-            <div class="modal-content">
-              <span class="close-btn" onclick="closeModal('modal1')">&times;</span>
-              <h2>Service1</h2>
-              <p>Detailed description goes here...</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-            <div class="service-item d-flex flex-column text-center rounded">
-              <div class="service-icon flex-shrink-0">
-                <i class="fa fa-thumbs-up fa-2x"></i>
+              <!-- The modal -->
+              <div id="modal{{ service.id }}" class="modal">
+                <div class="modal-content">
+                  <span class="close-btn" onclick="closeModal('modal{{ service.id }}')">&times;</span>
+                  <h2>{{ service.title }}</h2>
+                  <p>{{ service.detailed_description }}</p>
+                </div>
               </div>
-              <h5 class="mb-3">Service2</h5>
-              <p class="m-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet
-                lorem.</p>
-              <a class="btn btn-square" href="#" onclick="openModal('modal2')"><i class="fa fa-arrow-right"></i></a>
-            </div>
+            {% endfor %}
           </div>
-          <!-- The modal -->
-          <div id="modal2" class="modal">
-            <div class="modal-content">
-              <span class="close-btn" onclick="closeModal('modal2')">&times;</span>
-              <h2>Service2</h2>
-              <p>Detailed description goes here...</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-            <div class="service-item d-flex flex-column text-center rounded">
-              <div class="service-icon flex-shrink-0">
-                <i class="fab fa-android fa-2x"></i>
-              </div>
-              <h5 class="mb-3">Service3</h5>
-              <p class="m-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet
-                lorem.</p>
-              <a class="btn btn-square" href="#" onclick="openModal('modal3')"><i class="fa fa-arrow-right"></i></a>
-            </div>
-          </div>
-          <!-- The modal -->
-          <div id="modal3" class="modal">
-            <div class="modal-content">
-              <span class="close-btn" onclick="closeModal('modal3')">&times;</span>
-              <h2>Service3</h2>
-              <p>Detailed description goes here...</p>
-            </div>
-          </div>
-        </div>
+        {% else %}
+          <p>No services added.</p>
+        {% endif %}
+    
       </div>
     </div>
+    
+    <script>
+      // JavaScript functions to open and close the modals
+      function openModal(modalId) {
+        document.getElementById(modalId).style.display = "flex";
+      }
+    
+      function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+      }
+    </script>
+    
     <!-- Service End -->
 
 
@@ -453,6 +434,50 @@
       </div>
   </div>
   <!-- Projects End -->
+
+  <!-- Projects Start -->
+  <div class="container-xxl py-5">
+    <div class="container py-5 px-lg-5">
+      <div class="wow fadeInUp" data-wow-delay="0.1s">
+        <p class="section-title text-secondary justify-content-center"><span></span>OUR SYSTEMS<span></span></p>
+        <h1 class="text-center mb-5">Start trading and experience the best cryptocurrency journey</h1>
+      </div>
+  
+      <div class="row g-4 portfolio-container">
+        {% for trader in traders %}
+          <div class="col-lg-4 col-md-6 portfolio-item wow fadeInUp" data-wow-delay="{{ forloop.counter0 | add:'0.1' }}s">
+            <div class="trader-card">
+              <img class="avatar" src="{{ trader.avatar.url }}" alt="Avatar">
+              <div class="info">
+                <h3 class="text-primary fw-medium mb-2">#{{ trader.id }}&amp;{{ trader.title }}</h3>
+                <div class="follows-num">Followers: 100/250</div>
+              </div>
+              <ul class="stats">
+                <li><h5 class="lh-base mb-0">{{ trader.roi }}%</h5> ROI</li>
+                <li><h5 class="lh-base mb-0">{{ trader.last_profit }}</h5> Last 3W profit</li>
+                <li><h5 class="lh-base mb-0">{{ trader.last_profit_win_rate }}%</h5> Last 3W win rate</li>
+                <li><h5 class="lh-base mb-0">{{ trader.total_profits }}</h5> Total profits</li>
+                <!-- Add other stats here -->
+                <li><h5 class="lh-base mb-0">{{ trader.copy_traders }}</h5> Total copy traders</li>
+                    <li><h5 class="lh-base mb-0">{{ trader.AUM }}%</h5> AUM</li>
+                    <li><h5 class="lh-base mb-0">{{ trader.max_drawdown }}%</h5> Max drawdown</li>
+              </ul>
+  
+              <div class="asset">
+                <p>Pricing: </p>
+                <img src="{% static 'img/origin-dollar-ousd-logo.svg' %}" alt="coin">
+                $ {{ trader.pricing }}
+              </div>
+  
+              <button class="btn btn-secondary py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">Copy Trading</button>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <!-- Projects End -->
+
   <div class="floating-chat">
     <i class="fa fa-comments" aria-hidden="true"></i>
     <div class="chat">
