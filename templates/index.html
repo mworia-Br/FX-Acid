@@ -349,107 +349,19 @@
 
     <!-- Projects Start -->
     <div class="container-xxl py-5">
-      <div class="container py-5 px-lg-5">
-          <div class="wow fadeInUp" data-wow-delay="0.1s">
-              <p class="section-title text-secondary justify-content-center"><span></span>OUR SYSTEMS<span></span></p>
-              <h1 class="text-center mb-5">Start trading and experience the best cryptocurrency journey</h1>
-          </div>
-          <div class="row g-4 portfolio-container">
-              <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.1s">
-                <div class="trader-card">
-                  <img class="avatar" src="{% static 'img/cryptograph.jpg' %}" alt="Avatar">
-                  <div class="info">
-                    <h3 class="text-primary fw-medium mb-2" >#7490&amp;System1</h3>
-                    <div class="follows-num">Followers: 139/250</div>
-                  </div>
-                  <ul class="stats">
-                    <li><h5 class="lh-base mb-0">783.93%</h5> ROI</li>
-                    <li><h5 class="lh-base mb-0">134.6374</h5> Last 3W profit</li>
-                    <li><h5 class="lh-base mb-0">48.72%</h5> Last 3W win rate</li>
-                    <li><h5 class="lh-base mb-0">643.0168</h5> Total profits</li>
-                    <li><h5 class="lh-base mb-0">285</h5> Total copy traders</li>
-                    <li><h5 class="lh-base mb-0">7,464.44</h5> AUM</li>
-                    <li><h5 class="lh-base mb-0">103.05%</h5> Max drawdown</li>
-                  </ul>
-              
-                  <div class="asset">
-                    <img src="{% static 'img/origin-dollar-ousd-logo.svg' %}" alt="coin">
-                    ****** USDT
-                  </div>
-              
-                  <button class="btn btn-secondary py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">Copy Trading</button>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.3s">
-                <div class="trader-card">
-                  <img class="avatar" src="{% static 'img/cryptograph.jpg' %}" alt="Avatar">
-                  <div class="info">
-                    <h3 class="text-primary fw-medium mb-2" >#7490&amp;System1</h3>
-                    <div class="follows-num">Followers: 139/250</div>
-                  </div>
-                  <ul class="stats">
-                    <li><h5 class="lh-base mb-0">783.93%</h5> ROI</li>
-                    <li><h5 class="lh-base mb-0">134.6374</h5> Last 3W profit</li>
-                    <li><h5 class="lh-base mb-0">48.72%</h5> Last 3W win rate</li>
-                    <li><h5 class="lh-base mb-0">643.0168</h5> Total profits</li>
-                    <li><h5 class="lh-base mb-0">285</h5> Total copy traders</li>
-                    <li><h5 class="lh-base mb-0">7,464.44</h5> AUM</li>
-                    <li><h5 class="lh-base mb-0">103.05%</h5> Max drawdown</li>
-                  </ul>
-              
-                  <div class="asset">
-                    <img src="{% static 'img/origin-dollar-ousd-logo.svg' %}" alt="coin">
-                    ****** USDT
-                  </div>
-              
-                  <button class="btn btn-secondary py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">Copy Trading</button>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.5s">
-                <div class="trader-card">
-                  <img class="avatar" src="{% static 'img/cryptograph.jpg' %}" alt="Avatar">
-                  <div class="info">
-                    <h3 class="text-primary fw-medium mb-2" >#7490&amp;System1</h3>
-                    <div class="follows-num">Followers: 139/250</div>
-                  </div>
-                  <ul class="stats">
-                    <li><h5 class="lh-base mb-0">783.93%</h5> ROI</li>
-                    <li><h5 class="lh-base mb-0">134.6374</h5> Last 3W profit</li>
-                    <li><h5 class="lh-base mb-0">48.72%</h5> Last 3W win rate</li>
-                    <li><h5 class="lh-base mb-0">643.0168</h5> Total profits</li>
-                    <li><h5 class="lh-base mb-0">285</h5> Total copy traders</li>
-                    <li><h5 class="lh-base mb-0">7,464.44</h5> AUM</li>
-                    <li><h5 class="lh-base mb-0">103.05%</h5> Max drawdown</li>
-                  </ul>
-              
-                  <div class="asset">
-                    <img src="{% static 'img/origin-dollar-ousd-logo.svg' %}" alt="coin">
-                    ****** USDT
-                  </div>
-              
-                  <button class="btn btn-secondary py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">Copy Trading</button>
-                </div>
-              </div>
-          </div>
-      </div>
-  </div>
-  <!-- Projects End -->
-
-  <!-- Projects Start -->
-  <div class="container-xxl py-5">
     <div class="container py-5 px-lg-5">
       <div class="wow fadeInUp" data-wow-delay="0.1s">
         <p class="section-title text-secondary justify-content-center"><span></span>OUR SYSTEMS<span></span></p>
         <h1 class="text-center mb-5">Start trading and experience the best cryptocurrency journey</h1>
       </div>
-  
+      {% if traders %}
       <div class="row g-4 portfolio-container">
         {% for trader in traders %}
           <div class="col-lg-4 col-md-6 portfolio-item wow fadeInUp" data-wow-delay="{{ forloop.counter0 | add:'0.1' }}s">
             <div class="trader-card">
-              <img class="avatar" src="{{ trader.avatar.url }}" alt="Avatar">
+              <img class="avatar" src="{% static 'img/cryptograph.jpg' %}" alt="Avatar">
               <div class="info">
-                <h3 class="text-primary fw-medium mb-2">#{{ trader.id }}&amp;{{ trader.title }}</h3>
+                <h3 class="text-primary fw-medium mb-2">#{{ trader.id }}&amp;{{ trader.name }}</h3>
                 <div class="follows-num">Followers: 100/250</div>
               </div>
               <ul class="stats">
@@ -464,16 +376,24 @@
               </ul>
   
               <div class="asset">
-                <p>Pricing: </p>
                 <img src="{% static 'img/origin-dollar-ousd-logo.svg' %}" alt="coin">
-                $ {{ trader.pricing }}
+                <p>Pricing: </p>
+                $ {{ trader.fee }}
               </div>
-  
-              <button class="btn btn-secondary py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">Copy Trading</button>
+              <form method="post" action="{% url 'initiate_payment' %}">
+                {% csrf_token %}
+                  <!-- Hidden inputs for pricing and user email -->
+                <input type="hidden" name="amount" value="{{ trader.fee }}" required>
+                <input type="hidden" name="email" value="{% if user.is_authenticated %}{{ user.email }}{% endif %}">    
+                <button class="btn btn-secondary py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft" type="submit">Copy Trading</button>
+              </form>
             </div>
           </div>
         {% endfor %}
       </div>
+      {% else %}
+      <p>No systems added.</p>
+    {% endif %}
     </div>
   </div>
   <!-- Projects End -->

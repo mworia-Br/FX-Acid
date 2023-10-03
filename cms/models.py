@@ -7,7 +7,7 @@ from django.contrib import admin
 class System(models.Model):
     name = models.CharField(max_length=50 ,blank=True, null=True)
     trading_style = models.CharField(max_length=100 ,blank=True, null=True)
-    pricing = models.DecimalField(max_digits=15, decimal_places=2 ,blank=True, null=True)
+    fee = models.PositiveIntegerField(max_length=15, default=500, blank=False, null=False)
     roi = models.CharField(max_length=50 ,blank=True, null=True)
     last_profit = models.CharField(max_length=50 ,blank=True, null=True)
     last_profit_win_rate = models.CharField(max_length=50 ,blank=True, null=True)
@@ -87,8 +87,8 @@ class Transaction(models.Model):
         )
 
 class Service(models.Model):
-    title = models.CharField(max_length=150, verbose_name="Service Title")
-    slug = models.SlugField(max_length=160, verbose_name="Service Slug")
+    title = models.CharField(max_length=150)
+    slug = models.SlugField(max_length=160)
     short_description = models.TextField(verbose_name="Short Description")
     detailed_description = models.TextField(blank=True, null=True, verbose_name="Detail Description")
     service_image = models.ImageField(upload_to='service', blank=True, null=True, verbose_name="Service Image")

@@ -58,9 +58,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav mx-auto py-0">
-                        <a href=" {% url 'cms:index' %} " class="nav-item nav-link active">Home</a>
+                        <a href=" {% url 'cms:index' %} " class="nav-item nav-link">Home</a>
                         <a href=" {% url 'cms:index' %} " class="nav-item nav-link">Buy Crypto</a>
-                        <a href="{% url 'cms:services' %}" class="nav-item nav-link">Service</a>
+                        <a href="{% url 'cms:services' %}" class="nav-item nav-link active">Service</a>
                         <a href="{% url 'cms:systems' %}" class="nav-item nav-link">Systems</a>
                         <a href="{% url 'cms:contact' %}" class="nav-item nav-link">Contact</a>
                     </div>
@@ -99,7 +99,6 @@
         </div>
         <!-- Navbar & Hero End -->
 
-
         <!-- Service Start -->
         <div class="container-xxl py-5">
             <div class="container py-5 px-lg-5">
@@ -107,67 +106,48 @@
                 <p class="section-title text-secondary justify-content-center"><span></span>Our Services<span></span></p>
                 <h1 class="text-center mb-5">What Solutions We Provide</h1>
             </div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="service-item d-flex flex-column text-center rounded">
-                    <div class="service-icon flex-shrink-0">
-                    <i class="fa fa-mail-bulk fa-2x"></i>
+        
+            {% if services %}
+                <div class="row g-4">
+                {% for service in services %}
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item d-flex flex-column text-center rounded">
+                        <div class="service-icon flex-shrink-0">
+                        <i class="{{ service.icon_class }} fa-2x"></i>
+                        </div>
+                        <h5 class="mb-3">{{ service.title }}</h5>
+                        <p class="m-0">{{ service.short_description }}</p>
+                        <a class="btn btn-square" href="#" onclick="openModal('modal{{ service.id }}')"><i class="fa fa-arrow-right"></i></a>
                     </div>
-                    <h5 class="mb-3">Service1</h5>
-                    <p class="m-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet
-                    lorem.</p>
-                    <a class="btn btn-square" href="#" onclick="openModal('modal2')"><i class="fa fa-arrow-right"></i></a>
-                </div>
-                </div>
-                <!-- The modal -->
-                <div id="modal1" class="modal">
-                <div class="modal-content">
-                    <span class="close-btn" onclick="closeModal('modal1')">&times;</span>
-                    <h2>Service1</h2>
-                    <p>Detailed description goes here...</p>
-                </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="service-item d-flex flex-column text-center rounded">
-                    <div class="service-icon flex-shrink-0">
-                    <i class="fa fa-thumbs-up fa-2x"></i>
                     </div>
-                    <h5 class="mb-3">Service2</h5>
-                    <p class="m-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet
-                    lorem.</p>
-                    <a class="btn btn-square" href="#" onclick="openModal('modal2')"><i class="fa fa-arrow-right"></i></a>
-                </div>
-                </div>
-                <!-- The modal -->
-                <div id="modal2" class="modal">
-                <div class="modal-content">
-                    <span class="close-btn" onclick="closeModal('modal2')">&times;</span>
-                    <h2>Service2</h2>
-                    <p>Detailed description goes here...</p>
-                </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                <div class="service-item d-flex flex-column text-center rounded">
-                    <div class="service-icon flex-shrink-0">
-                    <i class="fab fa-android fa-2x"></i>
+                    <!-- The modal -->
+                    <div id="modal{{ service.id }}" class="modal">
+                    <div class="modal-content">
+                        <span class="close-btn" onclick="closeModal('modal{{ service.id }}')">&times;</span>
+                        <h2>{{ service.title }}</h2>
+                        <p>{{ service.detailed_description }}</p>
                     </div>
-                    <h5 class="mb-3">Service3</h5>
-                    <p class="m-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet
-                    lorem.</p>
-                    <a class="btn btn-square" href="#" onclick="openModal('modal3')"><i class="fa fa-arrow-right"></i></a>
+                    </div>
+                {% endfor %}
                 </div>
-                </div>
-                <!-- The modal -->
-                <div id="modal3" class="modal">
-                <div class="modal-content">
-                    <span class="close-btn" onclick="closeModal('modal3')">&times;</span>
-                    <h2>Service3</h2>
-                    <p>Detailed description goes here...</p>
-                </div>
-                </div>
-            </div>
+            {% else %}
+                <p>No services added.</p>
+            {% endif %}
+        
             </div>
         </div>
+        
+        <script>
+            // JavaScript functions to open and close the modals
+            function openModal(modalId) {
+            document.getElementById(modalId).style.display = "flex";
+            }
+        
+            function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+            }
+        </script>
+        
         <!-- Service End -->
 
 
