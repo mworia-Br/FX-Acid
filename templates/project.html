@@ -31,6 +31,68 @@
 
     <!-- Template Stylesheet -->
     <link href=" {% static 'css/style.css' %} " rel="stylesheet">
+    <link href=" {% static 'css/floatingchat.css' %} " rel="stylesheet">
+    <style>
+        .trader-card {
+          background-color: #F6F4F9;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          padding: 20px;
+          width: 100%; /* Set a percentage width */
+          max-width: 400px; /* Set a maximum width if needed */
+          text-align: center;
+          margin: auto;
+        }
+    
+        .avatar {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          margin-bottom: 10px;
+        }
+    
+        .info {
+          margin-bottom: 15px;
+        }
+    
+        .info h3 {
+          margin: 0;
+          font-size: 1.2em;
+        }
+    
+        .follows-num {
+          color: #555;
+        }
+    
+        .stats {
+          margin-bottom: 15px;
+        }
+    
+        .stats li {
+          list-style: none;
+          margin-bottom: 5px;
+        }
+    
+        .stats .val {
+          font-weight: bold;
+          color: #333;
+        }
+    
+        .buttoncard {
+          background-color: #3498db;
+          color: #fff;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 1em;
+          transition: background-color 0.3s ease;
+        }
+    
+        .buttoncard:hover {
+          background-color: #2980b9;
+        }
+      </style>
 </head>
 
 <body>
@@ -98,144 +160,201 @@
         <!-- Navbar & Hero End -->
 
 
-        <!-- Projects Start -->
-        <div class="container-xxl py-5">
-            <div class="container py-5 px-lg-5">
-                <div class="wow fadeInUp" data-wow-delay="0.1s">
-                    <p class="section-title text-secondary justify-content-center"><span></span>OUR SYSTEMS<span></span></p>
-                    <h1 class="text-center mb-5">Start trading and experience the best cryptocurrency journey</h1>
+    <!-- Projects Start -->
+    <div class="container-xxl py-5">
+        <div class="container py-5 px-lg-5">
+            <div class="wow fadeInUp" data-wow-delay="0.1s">
+                <p class="section-title text-secondary justify-content-center"><span></span>OUR SYSTEMS<span></span></p>
+                <h1 class="text-center mb-5">Start trading and experience the best cryptocurrency journey</h1>
+            </div>
+            <div class="row g-4 portfolio-container">
+                <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.1s">
+                  <div class="trader-card">
+                    <img class="avatar" src="{% static 'img/cryptograph.jpg' %}" alt="Avatar">
+                    <div class="info">
+                      <h3 class="text-primary fw-medium mb-2" >#7490&amp;System1</h3>
+                      <div class="follows-num">Followers: 139/250</div>
+                    </div>
+                    <ul class="stats">
+                      <li><h5 class="lh-base mb-0">783.93%</h5> ROI</li>
+                      <li><h5 class="lh-base mb-0">134.6374</h5> Last 3W profit</li>
+                      <li><h5 class="lh-base mb-0">48.72%</h5> Last 3W win rate</li>
+                      <li><h5 class="lh-base mb-0">643.0168</h5> Total profits</li>
+                      <li><h5 class="lh-base mb-0">285</h5> Total copy traders</li>
+                      <li><h5 class="lh-base mb-0">7,464.44</h5> AUM</li>
+                      <li><h5 class="lh-base mb-0">103.05%</h5> Max drawdown</li>
+                    </ul>
+                
+                    <div class="asset">
+                      <img src="{% static 'img/origin-dollar-ousd-logo.svg' %}" alt="coin">
+                      ****** USDT
+                    </div>
+                
+                    <button class="btn btn-secondary py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">Copy Trading</button>
+                  </div>
                 </div>
-                <div class="row g-4 portfolio-container">
-                    <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="rounded overflow-hidden">
-                            <div class="position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src=" {% static 'img/cryptograph.jpg' %} " alt="">
-                                <div class="portfolio-overlay">
-                                    <a class="btn btn-square btn-outline-light mx-1" href=" {% static 'img/cryptograph.jpg' %} " data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href="#"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                            <div class="bg-light p-4">
-                                <p class="text-primary fw-medium mb-2">UI / UX System1 Design</p>
-                                <h5 class="lh-base mb-0">Start trading and experience the best cryptocurrency journey</a>
-                            </div>
+                <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.3s">
+                  <div class="trader-card">
+                    <img class="avatar" src="{% static 'img/cryptograph.jpg' %}" alt="Avatar">
+                    <div class="info">
+                      <h3 class="text-primary fw-medium mb-2" >#7490&amp;System1</h3>
+                      <div class="follows-num">Followers: 139/250</div>
+                    </div>
+                    <ul class="stats">
+                      <li><h5 class="lh-base mb-0">783.93%</h5> ROI</li>
+                      <li><h5 class="lh-base mb-0">134.6374</h5> Last 3W profit</li>
+                      <li><h5 class="lh-base mb-0">48.72%</h5> Last 3W win rate</li>
+                      <li><h5 class="lh-base mb-0">643.0168</h5> Total profits</li>
+                      <li><h5 class="lh-base mb-0">285</h5> Total copy traders</li>
+                      <li><h5 class="lh-base mb-0">7,464.44</h5> AUM</li>
+                      <li><h5 class="lh-base mb-0">103.05%</h5> Max drawdown</li>
+                    </ul>
+                
+                    <div class="asset">
+                      <img src="{% static 'img/origin-dollar-ousd-logo.svg' %}" alt="coin">
+                      ****** USDT
+                    </div>
+                
+                    <button class="btn btn-secondary py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">Copy Trading</button>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.5s">
+                  <div class="trader-card">
+                    <img class="avatar" src="{% static 'img/cryptograph.jpg' %}" alt="Avatar">
+                    <div class="info">
+                      <h3 class="text-primary fw-medium mb-2" >#7490&amp;System1</h3>
+                      <div class="follows-num">Followers: 139/250</div>
+                    </div>
+                    <ul class="stats">
+                      <li><h5 class="lh-base mb-0">783.93%</h5> ROI</li>
+                      <li><h5 class="lh-base mb-0">134.6374</h5> Last 3W profit</li>
+                      <li><h5 class="lh-base mb-0">48.72%</h5> Last 3W win rate</li>
+                      <li><h5 class="lh-base mb-0">643.0168</h5> Total profits</li>
+                      <li><h5 class="lh-base mb-0">285</h5> Total copy traders</li>
+                      <li><h5 class="lh-base mb-0">7,464.44</h5> AUM</li>
+                      <li><h5 class="lh-base mb-0">103.05%</h5> Max drawdown</li>
+                    </ul>
+                
+                    <div class="asset">
+                      <img src="{% static 'img/origin-dollar-ousd-logo.svg' %}" alt="coin">
+                      ****** USDT
+                    </div>
+                
+                    <button class="btn btn-secondary py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">Copy Trading</button>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Projects End -->
+    <div class="floating-chat">
+      <i class="fa fa-comments" aria-hidden="true"></i>
+      <div class="chat">
+          <div class="header">
+              <span class="title">
+                  what's on your mind?
+              </span>
+              <button>
+                  <i class="fa fa-times" aria-hidden="true"></i>
+              </button>
+                           
+          </div>
+          <ul class="messages">
+              <li class="other">asdasdasasdasdasasdasdasasdasdasasdasdasasdasdasasdasdas</li>
+              <li class="other">Are we dogs??? 🐶</li>
+              <li class="self">no... we're human</li>
+              <li class="other">are you sure???</li>
+              <li class="self">yes.... -___-</li>
+              <li class="other">if we're not dogs.... we might be monkeys 🐵</li>
+              <li class="self">i hate you</li>
+              <li class="other">don't be so negative! here's a banana 🍌</li>
+              <li class="self">......... -___-</li>
+          </ul>
+          <div class="footer">
+              <div class="text-box" contenteditable="true" disabled="true"></div>
+              <button id="sendMessage">send</button>
+          </div>
+      </div>
+    </div>
+    <!-- Footer Start -->
+    <div class="container-fluid bg-primary text-light footer wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5 px-lg-5">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-3">
+                    <p class="section-title text-white h5 mb-4">Address<span></span></p>
+                    <p><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                    <p><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                    <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href=" {% static '' %} "><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=" {% static '' %} "><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=" {% static '' %} "><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=" {% static '' %} "><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <p class="section-title text-white h5 mb-4">Quick Link<span></span></p>
+                    <a class="btn btn-link" href=" {% static '' %} ">About Us</a>
+                    <a class="btn btn-link" href=" {% static '' %} ">Contact Us</a>
+                    <a class="btn btn-link" href=" {% static '' %} ">Privacy Policy</a>
+                    <a class="btn btn-link" href=" {% static '' %} ">Terms & Condition</a>
+                    <a class="btn btn-link" href=" {% static '' %} ">Career</a>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <p class="section-title text-white h5 mb-4">Gallery<span></span></p>
+                    <div class="row g-2">
+                        <div class="col-4">
+                            <img class="img-fluid" src=" {% static 'img/cryptograph.jpg' %} " alt="Image">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid" src=" {% static 'img/cryptograph.jpg' %} " alt="Image">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid" src=" {% static 'img/cryptograph.jpg' %} " alt="Image">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid" src=" {% static 'img/portfolio-4.jpg' %} " alt="Image">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid" src=" {% static 'img/portfolio-5.jpg' %} " alt="Image">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid" src=" {% static 'img/portfolio-6.jpg' %} " alt="Image">
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="rounded overflow-hidden">
-                            <div class="position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src=" {% static 'img/cryptograph.jpg' %} " alt="">
-                                <div class="portfolio-overlay">
-                                    <a class="btn btn-square btn-outline-light mx-1" href=" {% static 'img/cryptograph.jpg' %} " data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href="#"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                            <div class="bg-light p-4">
-                                <p class="text-primary fw-medium mb-2">UI / UX System2 Design</p>
-                                <h5 class="lh-base mb-0">Start trading and experience the best cryptocurrency journey</a>
-                            </div>
-                        </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <p class="section-title text-white h5 mb-4">Newsletter<span></span></p>
+                    <p>Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulpu</p>
+                    <div class="position-relative w-100 mt-3">
+                        <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text" placeholder="Your Email" style="height: 48px;">
+                        <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i class="fa fa-paper-plane text-primary fs-4"></i></button>
                     </div>
-                    <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="rounded overflow-hidden">
-                            <div class="position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src=" {% static 'img/cryptograph.jpg' %} " alt="">
-                                <div class="portfolio-overlay">
-                                    <a class="btn btn-square btn-outline-light mx-1" href=" {% static 'img/cryptograph.jpg' %} " data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href="#"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                            <div class="bg-light p-4">
-                                <p class="text-primary fw-medium mb-2">UI / UX System3 Design</p>
-                                <h5 class="lh-base mb-0">Start trading and experience the best cryptocurrency journey</a>
-                            </div>
+                </div>
+            </div>
+        </div>
+        <div class="container px-lg-5">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">HARPOCRATES FX</a>, All Right Reserved. 
+          
+          <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://mworia.pythonanywhere.com/credit-removal". Thank you for your support. ***/-->
+          Designed By <a class="border-bottom" href="https://mworia.pythonanywhere.com">Bray</a>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href=" {% static '' %} ">Home</a>
+                            <a href=" {% static '' %} ">Cookies</a>
+                            <a href=" {% static '' %} ">Help</a>
+                            <a href=" {% static '' %} ">FQAs</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Projects End -->
-        
-
-        <!-- Footer Start -->
-        <div class="container-fluid bg-primary text-light footer wow fadeIn" data-wow-delay="0.1s">
-            <div class="container py-5 px-lg-5">
-                <div class="row g-5">
-                    <div class="col-md-6 col-lg-3">
-                        <p class="section-title text-white h5 mb-4">Address<span></span></p>
-                        <p><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                        <p><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                        <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
-                        <div class="d-flex pt-2">
-                            <a class="btn btn-outline-light btn-social" href=" {% static '' %} "><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=" {% static '' %} "><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=" {% static '' %} "><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=" {% static '' %} "><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <p class="section-title text-white h5 mb-4">Quick Link<span></span></p>
-                        <a class="btn btn-link" href=" {% static '' %} ">About Us</a>
-                        <a class="btn btn-link" href=" {% static '' %} ">Contact Us</a>
-                        <a class="btn btn-link" href=" {% static '' %} ">Privacy Policy</a>
-                        <a class="btn btn-link" href=" {% static '' %} ">Terms & Condition</a>
-                        <a class="btn btn-link" href=" {% static '' %} ">Career</a>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <p class="section-title text-white h5 mb-4">Gallery<span></span></p>
-                        <div class="row g-2">
-                            <div class="col-4">
-                                <img class="img-fluid" src=" {% static 'img/cryptograph.jpg' %} " alt="Image">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid" src=" {% static 'img/cryptograph.jpg' %} " alt="Image">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid" src=" {% static 'img/cryptograph.jpg' %} " alt="Image">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid" src=" {% static 'img/portfolio-4.jpg' %} " alt="Image">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid" src=" {% static 'img/portfolio-5.jpg' %} " alt="Image">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid" src=" {% static 'img/portfolio-6.jpg' %} " alt="Image">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <p class="section-title text-white h5 mb-4">Newsletter<span></span></p>
-                        <p>Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulpu</p>
-                        <div class="position-relative w-100 mt-3">
-                            <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text" placeholder="Your Email" style="height: 48px;">
-                            <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i class="fa fa-paper-plane text-primary fs-4"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container px-lg-5">
-                <div class="copyright">
-                    <div class="row">
-                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved. 
-							
-							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://mworia.pythonanywhere.com/credit-removal". Thank you for your support. ***/-->
-							Designed By <a class="border-bottom" href="https://mworia.pythonanywhere.com">Bray</a>
-                        </div>
-                        <div class="col-md-6 text-center text-md-end">
-                            <div class="footer-menu">
-                                <a href=" {% static '' %} ">Home</a>
-                                <a href=" {% static '' %} ">Cookies</a>
-                                <a href=" {% static '' %} ">Help</a>
-                                <a href=" {% static '' %} ">FQAs</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Footer End -->
+    </div>
+    <!-- Footer End -->
 
 
         <!-- Back to Top -->
@@ -255,6 +374,7 @@
 
     <!-- Template Javascript -->
     <script src=" {% static 'js/main.js' %} "></script>
+    <script src=" {% static 'js/floatingchat.js' %} "></script>
 </body>
 
 </html>

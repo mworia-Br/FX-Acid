@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.views import View
 from django.http import HttpResponse, request
 from django.contrib.auth.decorators import login_required
+from .models import Service, System, SystemData
 
 # Create your views here.
 
@@ -27,7 +28,8 @@ class RegistrationView(View):
 
 @login_required
 def IndexView(request):
-    return render(request, 'index.html')
+    services = Service.objects.all()
+    return render(request, 'index.html', {'services': services})
 
 def accounts(request):
     return render(request, 'login&signup.html')
@@ -36,7 +38,8 @@ def resetpassword(request):
     return render(request, 'forgotpassword.html')
 
 def ServiceView(request):
-    return render(request, 'service.html')
+    services = Service.objects.all()
+    return render(request, 'service.html', {'services': services})
 
 def SystemView(request):
     return render(request, 'project.html')

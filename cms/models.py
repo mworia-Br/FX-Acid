@@ -103,9 +103,23 @@ class Service(models.Model):
     def __str__(self):
         return self.title
 
+class Chat(models.Model):
+    user = models.ForeignKey(User, verbose_name="User", on_delete=models.CASCADE)
+    message = models.TextField(verbose_name="Message")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Created Date")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="Updated Date")
+
+class Reply(models.Model):
+    user = models.ForeignKey(User, verbose_name="User", on_delete=models.CASCADE)
+    chat = models.ForeignKey(Chat, verbose_name='Chat', on_delete=models.CASCADE)
+    message = models.TextField(verbose_name="Message")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Created Date")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="Updated Date")
     
 admin.site.register(System)
 admin.site.register(SystemData)
 admin.site.register(Cart)
 admin.site.register(CopyTrader)
 admin.site.register(Service)
+admin.site.register(Chat)
+admin.site.register(Reply)
