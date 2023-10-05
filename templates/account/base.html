@@ -1,0 +1,56 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block head_title %}{% endblock head_title %}</title>
+    {% block extra_head %}
+    {% endblock extra_head %}
+    <link rel="stylesheet" href="{% static 'css/loginstyle.css' %}">
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  </head>
+  <body>
+    {% block body %}
+
+    {% if messages %}
+    <div>
+      <strong>{% trans "Messages:" %}</strong>
+      <ul>
+        {% for message in messages %}
+        <li>{{message}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    <div class="containerlg">
+      <input type="checkbox" id="flip">
+      <div class="cover">
+        <div class="front">
+          <!-- Background image for the login form -->
+          <img src="{% static 'img/images/stock-market-graph-financial-data-electronic-board-laptop-screen.jpg' %}" alt="">
+          <div class="text">
+            <span class="text-1">$ 30 <br>Deposit Reward</span>
+            <span class="text-2">Earn with your deposit and trade</span>
+          </div>
+        </div>
+        <div class="back">
+          <!-- Background image for the registration form -->
+          <img class="backImg" src="{% static 'img/images/stock-market-graph-financial-data-electronic-board-laptop-screen.jpg' %}" alt="">
+          <div class="text">
+            <span class="text-1">$ 30 <br>Deposit Reward</span>
+            <span class="text-2">Earn with your deposit and trade</span>
+          </div>
+        </div>
+      </div>
+    {% block content %}
+    {% endblock content %}
+    {% endblock body %}
+    {% block extra_body %}
+    {% endblock extra_body %}
+  </body>
+</html>

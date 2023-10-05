@@ -1,15 +1,21 @@
 <!DOCTYPE html>
+{% load socialaccount %}
 {% load static %}
-<!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
+{% load account socialaccount %}
+<!-- Created by CodingLab | www.youtube.com/c/CodingLabYT -->
 <html lang="en" dir="ltr">
 
 <head>
   <meta charset="UTF-8">
   <!--<title> Login and Registration Form in HTML & CSS | CodingLab </title>-->
-  <link rel="stylesheet" href=" {% static 'css/loginstyle.css' %} ">
+  <link rel="stylesheet" href="{% static 'css/loginstyle.css' %}">
   <!-- Fontawesome CDN Link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Add Google Sign-In API -->
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id" content="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com">
 </head>
 
 <body>
@@ -17,15 +23,16 @@
     <input type="checkbox" id="flip">
     <div class="cover">
       <div class="front">
-        <img src=" {% static 'img/images/stock-market-graph-financial-data-electronic-board-laptop-screen.jpg' %} "
-          alt="">
+        <!-- Background image for the login form -->
+        <img src="{% static 'img/images/stock-market-graph-financial-data-electronic-board-laptop-screen.jpg' %}" alt="">
         <div class="text">
           <span class="text-1">$ 30 <br>Deposit Reward</span>
           <span class="text-2">Earn with your deposit and trade</span>
         </div>
       </div>
       <div class="back">
-        <img class="backImg" src=" {% static 'img/images/backImg.jpg' %} " alt="">
+        <!-- Background image for the registration form -->
+        <img class="backImg" src="{% static 'img/images/stock-market-graph-financial-data-electronic-board-laptop-screen.jpg' %}" alt="">
         <div class="text">
           <span class="text-1">$ 30 <br>Deposit Reward</span>
           <span class="text-2">Earn with your deposit and trade</span>
@@ -36,29 +43,57 @@
       <div class="form-content">
         <div class="login-form">
           <div class="title">Login</div>
+          {% get_providers as socialaccount_providers %}
+
+          
+          <div class="text">
+            <p></p>
+            <span></span>
+          </div>
+          <!-- Add "Continue with Google" button -->
+          <div class="text sign-up-text">
+            <a href="{% provider_login_url 'google' method='oauth2' %}"><i class="fab fa-google"></i>
+            Continue with Google</a>
+            
+          </div>
+          <div class="text sign-up-text">
+            or
+          </div>
+          
+          <!-- Login form with CSRF token -->
           <form method="post" action="{% url 'cms:login' %}">
             {% csrf_token %}
             <div class="input-boxes">
               <div class="input-box">
-                <i class="fas fa-envelope"></i>
+                <!-- Icon for email -->
+                <i class="fas fa-user"></i>
+                <!-- Input field for username -->
                 {{ form.username }}
               </div>
               <div class="input-box">
+                <!-- Icon for password -->
                 <i class="fas fa-lock"></i>
+                <!-- Input field for password -->
                 {{ form.password }}
               </div>
               <div class="text"><a href="{% url 'cms:password-reset' %}">Forgot password?</a></div>
               <div class="button input-box">
+                <!-- Submit button -->
                 <input type="submit" value="Submit">
               </div>
               <div class="text sign-up-text">Don't have an account? <a href="{% url 'cms:register' %}">Signup now</a>
               </div>
             </div>
           </form>
+          
+          
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Placeholder for the Google Sign-In button -->
+  <div id="google-signin-button"></div>
 </body>
 
 </html>

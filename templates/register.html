@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load socialaccount %}
 {% load static %}
 <!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
 <html lang="en" dir="ltr">
@@ -25,7 +26,7 @@
         </div>
       </div>
       <div class="back">
-        <img class="backImg" src=" {% static 'img/images/backImg.jpg' %} " alt="">
+        <img class="backImg" src=" {% static 'img/images/stock-market-graph-financial-data-electronic-board-laptop-screen.jpg' %} " alt="">
         <div class="text">
           <span class="text-1">$ 30 <br>Deposit Reward</span>
           <span class="text-2">Earn with your deposit and trade</span>
@@ -36,6 +37,15 @@
       <div class="form-content">
         <div class="login-form">
           <div class="title">Register</div>
+          <!-- Add "Continue with Google" button -->
+          <div class="text sign-up-text">
+            <a href="#"><i class="fab fa-google"></i>
+            Continue with Google</a>
+            
+          </div>
+          <div class="text sign-up-text">
+            or
+          </div>
           <form method="post" action="{% url 'cms:register' %}">
             {% csrf_token %}
             <div class="input-boxes">

@@ -7,7 +7,7 @@ from django.contrib import admin
 class System(models.Model):
     name = models.CharField(max_length=50 ,blank=True, null=True)
     trading_style = models.CharField(max_length=100 ,blank=True, null=True)
-    fee = models.PositiveIntegerField(max_length=15, default=500, blank=False, null=False)
+    fee = models.PositiveIntegerField(default=500, blank=False, null=False)
     roi = models.CharField(max_length=50 ,blank=True, null=True)
     last_profit = models.CharField(max_length=50 ,blank=True, null=True)
     last_profit_win_rate = models.CharField(max_length=50 ,blank=True, null=True)
