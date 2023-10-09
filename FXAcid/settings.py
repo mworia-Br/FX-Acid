@@ -171,11 +171,11 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/accounts/login/'
 
 #load environment variables from .env file
-PAYSTACK_SECRET_KEY = os.getenv('PAYSTACK_SECRET_KEY')
+#PAYSTACK_SECRET_KEY = os.getenv('PAYSTACK_SECRET_KEY')
 if 'PAYSTACK_SECRET_KEY' in os.environ:
     PAYSTACK_SECRET_KEY = os.environ["PAYSTACK_SECRET_KEY"]
 
-PAYSTACK_PUBLIC_KEY = os.getenv('PAYSTACK_PUBLIC_KEY')
+#PAYSTACK_PUBLIC_KEY = os.getenv('PAYSTACK_PUBLIC_KEY')
 if 'PAYSTACK_PUBLIC_KEY' in os.environ:
     PAYSTACK_PUBLIC_KEY = os.environ["PAYSTACK_PUBLIC_KEY"]
 
