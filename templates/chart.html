@@ -27,6 +27,11 @@
                             datasets: [{
                                 label: data.label,
                                 data: data.values,
+                                //backgroundColor: 'rgba(0, 0, 0, 0)', // Make the area under the line transparent
+                                borderColor: 'rgba(75, 192, 192, 1)',
+                                borderWidth: 2,
+                                pointRadius: 0, // Set point radius to zero to hide the points
+                                pointHoverRadius: 0, // Set hover point radius to zero
                             }]
                         },
                         options: {
