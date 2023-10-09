@@ -12,10 +12,12 @@ Django==4.2.5
 django-allauth==0.57.0
 django-heroku==0.3.1
 fonttools==4.43.0
+gunicorn==20.1.0
 idna==3.4
 importlib-resources==6.1.0
 kiwisolver==1.4.5
 matplotlib==3.8.0
+MetaTrader5==5.0.45
 numpy==1.26.0
 oauthlib==3.2.2
 packaging==23.1
