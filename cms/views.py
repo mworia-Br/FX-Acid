@@ -3,9 +3,9 @@ from django.shortcuts import render, redirect
 from .forms import RegistrationForm
 from django.contrib import messages
 from django.views import View
-from django.http import HttpResponse, request
+from django.http import HttpResponse, JsonResponse, request
 from django.contrib.auth.decorators import login_required
-from .models import Service, System, SystemData
+from .models import Service, System, SystemData, Consent
 
 # Create your views here.
 
@@ -32,19 +32,32 @@ def IndexView(request):
     traders = System.objects.all()
     return render(request, 'index.html', {'services': services, 'traders': traders})
 
-def accounts(request):
-    return render(request, 'login&signup.html')
-
-def resetpassword(request):
-    return render(request, 'forgotpassword.html')
-
+@login_required
 def ServiceView(request):
     services = Service.objects.all()
     return render(request, 'service.html', {'services': services})
 
+@login_required
 def SystemView(request):
     traders = System.objects.all()
     return render(request, 'project.html', {'traders': traders})
 
+@login_required
 def ContactView(request):
     return render(request, 'contact.html')
+
+def chart_data(request):
+    data = SystemData.objects.all()  # Replace YourModel with your actual model
+    labels = [item.date for item in data]
+    values = [item.roi for item in data]
+
+    chart_data = {
+        'label': 'ROI',
+        'labels': labels,
+        'values': values,
+        'chart_type': 'line' # any chart type line, bar, ects
+    }
+    return JsonResponse(chart_data)
+
+def chart_view(request):
+    return render(request, 'chart.html')

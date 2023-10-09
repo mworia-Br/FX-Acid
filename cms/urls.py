@@ -23,6 +23,6 @@ urlpatterns = [
     path('services/', views.ServiceView, name="services"),
     path('systems/', views.SystemView, name="systems"),
     path('contact/', views.ContactView, name="contact"),
-    path('resetpassword/', views.resetpassword, name="reset")
-    #path('accounts/', views.accounts, name="accounts")
+    path('chart-data/', views.chart_data, name='chart_data'),
+    path('chart/', views.chart_view, name='chart_view'),
 ]

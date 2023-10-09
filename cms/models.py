@@ -27,6 +27,8 @@ class System(models.Model):
 
 class SystemData(models.Model):
     name = models.ForeignKey(System, verbose_name="System", on_delete=models.CASCADE)
+    roi = models.CharField(max_length=50 ,blank=False, null=True)
+    date =models.DateField(blank=False, null=True)
 
 STATUS_CHOICES = (
     ('Not Paid', 'Not Paid'),
@@ -51,7 +53,6 @@ class Cart(models.Model):
     def total_price(self):
         return self.system.pricing
     
-
 class CopyTrader(models.Model):
     user = models.ForeignKey(User, verbose_name="User", on_delete=models.CASCADE)
     orderid = models.CharField(max_length=255, null=True, blank=True, verbose_name="Unique order ID")
@@ -85,7 +86,12 @@ class Transaction(models.Model):
         max_length=50,
         default='Deposit'
         )
-
+    
+class Consent(models.Model):
+    user = models.ForeignKey(User, verbose_name="User", on_delete=models.CASCADE)
+    signed = models.BooleanField(default=False)
+    signeddate = models.DateTimeField(auto_now=True)
+                                      
 class Service(models.Model):
     title = models.CharField(max_length=150)
     slug = models.SlugField(max_length=160)
