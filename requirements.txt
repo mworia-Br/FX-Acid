@@ -16,8 +16,8 @@ gunicorn==20.1.0
 idna==3.4
 importlib-resources==6.1.0
 kiwisolver==1.4.5
-matplotlib==3.8.0
-numpy==1.26.0
+matplotlib==3.7.3
+numpy==1.24.4
 oauthlib==3.2.2
 packaging==23.1
 Pillow==10.0.1
