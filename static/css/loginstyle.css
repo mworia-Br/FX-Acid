@@ -213,4 +213,15 @@ body{
   .containerlg #flip:checked ~ .forms .login-form{
     display: none;
   }
+  /* CSS for messages container */
+  .messages-container {
+    position: fixed;
+    top: 10px; /* Adjust this value to control vertical position */
+    right: 10px; /* Adjust this value to control horizontal position */
+    background-color: #fff; /* Background color for the container */
+    border: 1px solid #ccc; /* Border style, customize as needed */
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional box shadow for a card-like effect */
+    z-index: 999; /* Ensure the container is above other content */
+  }
 }

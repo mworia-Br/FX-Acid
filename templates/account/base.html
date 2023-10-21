@@ -18,11 +18,11 @@
     {% block body %}
 
     {% if messages %}
-    <div>
+    <div class="messages-container">
       <strong>{% trans "Messages:" %}</strong>
       <ul>
         {% for message in messages %}
-        <li>{{message}}</li>
+          <li>{{ message }}</li>
         {% endfor %}
       </ul>
     </div>
