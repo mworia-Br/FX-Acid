@@ -24,6 +24,7 @@ class System(models.Model):
     twitch = models.CharField(max_length=200 ,blank=True, null=True)
     twitch_visible = models.BooleanField(default=False, null=False)
     full = models.BooleanField(default=False, null=False)
+    excel_file = models.FileField(upload_to='uploads/', null=True)
 
 class SystemData(models.Model):
     name = models.ForeignKey(System, verbose_name="System", on_delete=models.CASCADE)
