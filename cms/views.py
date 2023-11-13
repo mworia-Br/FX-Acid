@@ -1,5 +1,6 @@
 from typing import Any
 from django.shortcuts import render, redirect
+import pandas as pd
 from .forms import RegistrationForm
 from django.contrib import messages
 from django.views import View
@@ -61,3 +62,17 @@ def chart_data(request):
 
 def chart_view(request):
     return render(request, 'chart.html')
+
+def excel_preview(request):
+    # Specify the path to your Excel file
+    excel_file_path = 'path/to/your/excel/file.xlsx'
+
+    # Read the Excel file into a pandas DataFrame
+    df = pd.read_excel(excel_file_path)
+
+    # Convert the DataFrame to HTML
+    html_table = df.to_html(classes='table table-striped')
+
+    # Pass the HTML content to the template
+    context = {'html_table': html_table}
+    return render(request, 'excel_preview.html', context)
