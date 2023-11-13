@@ -26,10 +26,16 @@ class System(models.Model):
     full = models.BooleanField(default=False, null=False)
     excel_file = models.FileField(upload_to='uploads/', null=True)
 
+    def __str__(self):
+        return self.name
+
 class SystemData(models.Model):
     name = models.ForeignKey(System, verbose_name="System", on_delete=models.CASCADE)
     roi = models.CharField(max_length=50 ,blank=False, null=True)
     date =models.DateField(blank=False, null=True)
+
+    def __str__(self):
+        return self.name
 
 STATUS_CHOICES = (
     ('Not Paid', 'Not Paid'),
