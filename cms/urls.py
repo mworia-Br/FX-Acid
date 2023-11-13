@@ -25,4 +25,5 @@ urlpatterns = [
     path('contact/', views.ContactView, name="contact"),
     path('chart-data/', views.chart_data, name='chart_data'),
     path('chart/', views.chart_view, name='chart_view'),
+    path('excel-preview/<int:system_id>/', views.excel_preview, name='excel-preview'),
 ]

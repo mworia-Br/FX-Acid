@@ -1,5 +1,5 @@
 from typing import Any
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 import pandas as pd
 from .forms import RegistrationForm
 from django.contrib import messages
@@ -63,16 +63,25 @@ def chart_data(request):
 def chart_view(request):
     return render(request, 'chart.html')
 
-def excel_preview(request):
-    # Specify the path to your Excel file
-    excel_file_path = 'path/to/your/excel/file.xlsx'
+def excel_preview(request, system_id):
+    # Retrieve the System instance based on the provided ID
+    system = get_object_or_404(System, id=system_id)
 
-    # Read the Excel file into a pandas DataFrame
-    df = pd.read_excel(excel_file_path)
+    # Check if the system has an associated Excel file
+    if system.excel_file:
+        # Get the path to the Excel file
+        excel_file_path = system.excel_file.path
 
-    # Convert the DataFrame to HTML
-    html_table = df.to_html(classes='table table-striped')
+        # Read the Excel file into a pandas DataFrame
+        df = pd.read_excel(excel_file_path)
 
-    # Pass the HTML content to the template
-    context = {'html_table': html_table}
-    return render(request, 'excel_preview.html', context)
+        # Convert the DataFrame to HTML
+        html_table = df.to_html(classes='table table-striped')
+
+        # Pass the HTML content and other information to the template
+        context = {'html_table': html_table, 'system_name': system.name}
+        return render(request, 'excel_preview.html', context)
+    else:
+        # Handle the case where the system does not have an associated Excel file
+        return render(request, 'excel_not_found.html', {'system_name': system.name})
+    
