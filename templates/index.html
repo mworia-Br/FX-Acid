@@ -359,38 +359,37 @@
       {% if traders %}
       <div class="row g-4 portfolio-container">
         {% for trader in traders %}
-          <div class="col-lg-4 col-md-6 portfolio-item wow fadeInUp" data-wow-delay="{{ forloop.counter0 | add:'0.1' }}s">
-            <div class="trader-card">
-              <img class="avatar" src="{% static 'img/cryptograph.jpg' %}" alt="Avatar">
-              <div class="info">
-                <h3 class="text-primary fw-medium mb-2">#{{ trader.id }}&amp;{{ trader.name }}</h3>
-                <div class="follows-num">Followers: 100/250</div>
-              </div>
-              <ul class="stats">
-                <li><h5 class="lh-base mb-0">{{ trader.roi }}%</h5> ROI</li>
-                <li><h5 class="lh-base mb-0">{{ trader.last_profit }}</h5> Last 3W profit</li>
-                <li><h5 class="lh-base mb-0">{{ trader.last_profit_win_rate }}%</h5> Last 3W win rate</li>
-                <li><h5 class="lh-base mb-0">{{ trader.total_profits }}</h5> Total profits</li>
-                <!-- Add other stats here -->
-                <li><h5 class="lh-base mb-0">{{ trader.copy_traders }}</h5> Total copy traders</li>
-                    <li><h5 class="lh-base mb-0">{{ trader.AUM }}%</h5> AUM</li>
-                    <li><h5 class="lh-base mb-0">{{ trader.max_drawdown }}%</h5> Max drawdown</li>
-              </ul>
-  
-              <div class="asset">
-                <img src="{% static 'img/origin-dollar-ousd-logo.svg' %}" alt="coin">
-                <p>Pricing: </p>
-                $ {{ trader.fee }}
-              </div>
-              <form method="post" action="{% url 'initiate_payment' %}">
-                {% csrf_token %}
-                  <!-- Hidden inputs for pricing and user email -->
-                <input type="hidden" name="amount" value="{{ trader.fee }}" required>
-                <input type="hidden" name="email" value="{% if user.is_authenticated %}{{ user.email }}{% endif %}">    
-                <button class="btn btn-secondary py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft" type="submit">Copy Trading</button>
-              </form>
+        <div class="col-lg-4 col-md-6 portfolio-item wow fadeInUp" data-wow-delay="{{ forloop.counter0 | add:'0.1' }}s">
+          <div class="trader-card">
+            <img class="avatar" src="{% static 'img/cryptograph.jpg' %}" alt="Avatar">
+            <div class="info">
+              <h3 class="text-primary fw-medium mb-2">#{{ trader.id }}&amp;{{ trader.name }}</h3>
+              <div class="follows-num">Followers: 100/250</div>
             </div>
+            <ul class="stats">
+              <li><h5 class="lh-base mb-0">{{ trader.roi }}%</h5> ROI</li>
+              <li><h5 class="lh-base mb-0">{{ trader.last_profit }}</h5> Last 3W profit</li>
+              <li><h5 class="lh-base mb-0">{{ trader.last_profit_win_rate }}%</h5> Last 3W win rate</li>
+              <li><h5 class="lh-base mb-0">{{ trader.total_profits }}</h5> Total profits</li>
+              <!-- Add other stats here -->
+              <li><h5 class="lh-base mb-0">{{ trader.copy_traders }}</h5> Total copy traders</li>
+                  <li><h5 class="lh-base mb-0">{{ trader.AUM }}%</h5> AUM</li>
+                  <li><h5 class="lh-base mb-0">{{ trader.max_drawdown }}%</h5> Max drawdown</li>
+            </ul>
+            <ul class="stats">
+              <a href="{% url 'cms:excel-preview' system_id=trader.id %}">Detailed View</a>
+              <p>Pricing: </p>
+              $ {{ trader.fee }}
+            </ul>
+            <form method="post" action="{% url 'initiate_payment' %}">
+              {% csrf_token %}
+               <!-- Hidden inputs for pricing and user email -->
+              <input type="hidden" name="amount" value="{{ trader.fee }}" required>
+              <input type="hidden" name="email" value="{% if user.is_authenticated %}{{ user.email }}{% endif %}">    
+              <button class="btn btn-secondary py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft" type="submit">Copy Trading</button>
+            </form>
           </div>
+        </div>
         {% endfor %}
       </div>
       {% else %}
