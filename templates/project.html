@@ -193,12 +193,11 @@
                       <li><h5 class="lh-base mb-0">{{ trader.AUM }}%</h5> AUM</li>
                       <li><h5 class="lh-base mb-0">{{ trader.max_drawdown }}%</h5> Max drawdown</li>
                 </ul>
-    
-                <div class="asset">
-                  <img src="{% static 'img/origin-dollar-ousd-logo.svg' %}" alt="coin">
+                <ul class="stats">
+                  <a href="{% url 'cms:excel-preview' system_id=trader.id %}">Detailed View</a>
                   <p>Pricing: </p>
                   $ {{ trader.fee }}
-                </div>
+                </ul>
                 <form method="post" action="{% url 'initiate_payment' %}">
                   {% csrf_token %}
                    <!-- Hidden inputs for pricing and user email -->

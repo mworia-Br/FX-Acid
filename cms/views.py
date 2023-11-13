@@ -64,24 +64,29 @@ def chart_view(request):
     return render(request, 'chart.html')
 
 def excel_preview(request, system_id):
-    # Retrieve the System instance based on the provided ID
     system = get_object_or_404(System, id=system_id)
 
-    # Check if the system has an associated Excel file
     if system.excel_file:
-        # Get the path to the Excel file
         excel_file_path = system.excel_file.path
 
-        # Read the Excel file into a pandas DataFrame
-        df = pd.read_excel(excel_file_path)
+        # Specify the number of header rows to skip (assuming the header is in the first four rows)
+        skiprows = 4
 
-        # Convert the DataFrame to HTML
-        html_table = df.to_html(classes='table table-striped')
+        # Read the Excel file, skipping the header rows
+        df = pd.read_excel(excel_file_path, skiprows=skiprows)
 
-        # Pass the HTML content and other information to the template
+        # Customize the HTML conversion
+        html_table = df.to_html(
+            classes='table table-striped',
+            na_rep='',  # Replace NaN values with an empty string
+            index=False,  # Do not display the DataFrame index
+            col_space=20,  # Set the column space for better readability
+            bold_rows=False,  # Do not bold the header row
+            justify='left',  # Justify content to the left
+            border=0  # Set border to 0 for a cleaner look
+        )
+
         context = {'html_table': html_table, 'system_name': system.name}
         return render(request, 'excel_preview.html', context)
     else:
-        # Handle the case where the system does not have an associated Excel file
         return render(request, 'excel_not_found.html', {'system_name': system.name})
-    
