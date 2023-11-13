@@ -117,31 +117,29 @@
     <div class="container-xxl position-relative p-0">
       <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
         <a href="{% url 'cms:index' %}" class="navbar-brand p-0">
-          <!-- <h1 class="m-0">HARPOCRATES FX</h1> -->
-          <img src=" {% static 'img/Harpocrates Fx_Vector-1-01.png' %} " alt="Logo">
+          <img src="{% static 'img/Harpocrates Fx_Vector-1-01.png' %}" alt="Logo">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
           <span class="fa fa-bars"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <div class="navbar-nav mx-auto py-0">
-            <a href=" {% url 'cms:index' %} " class="nav-item nav-link active">Home</a>
-            <a href=" {% url 'cms:index' %} " class="nav-item nav-link">Buy Crypto</a>
+            <a href="{% url 'cms:index' %}" class="nav-item nav-link active">Home</a>
+            <a href="{% url 'cms:index' %}" class="nav-item nav-link">Buy Crypto</a>
             <a href="{% url 'cms:services' %}" class="nav-item nav-link">Service</a>
             <a href="{% url 'cms:systems' %}" class="nav-item nav-link">Systems</a>
             <a href="{% url 'cms:contact' %}" class="nav-item nav-link">Contact</a>
           </div>
           <div class="nav-item dropdown">
-            <a href="#" class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block" data-bs-toggle="dropdown">My
-              Account</a>
+            <button class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block" onclick="toggleDropdown()">My Account</button>
             <div class="dropdown-menu m-0">
-              <a href=" {% static 'team.html' %} " class="dropdown-item">Profile</a>
-              <a href=" {% static 'team.html' %} " class="dropdown-item">My System(s)</a>
-              <a href=" {% static 'testimonial.html' %} " class="dropdown-item">Wallet</a>
-              <a href=" {% static 'testimonial.html' %} " class="dropdown-item">Messages</a>
-              <a href=" {% url 'cms:password-change' %} " class="dropdown-item">Change Password</a>
+              <a href="{% static 'team.html' %}" class="dropdown-item">{{ request.user.username }}</a>
+              <a href="{% static 'team.html' %}" class="dropdown-item">My System(s)</a>
+              <a href="{% static 'testimonial.html' %}" class="dropdown-item">Wallet</a>
+              <a href="{% static 'testimonial.html' %}" class="dropdown-item">Messages</a>
+              <a href="{% url 'cms:password-change' %}" class="dropdown-item">Change Password</a>
               <li class="dropdown-item"> </li>
-              <a href=" {% url 'cms:logout' %} " class="dropdown-item">Log Out</a>
+              <a href="{% url 'cms:logout' %}" class="dropdown-item">Log Out</a>
             </div>
           </div>
         </div>
@@ -533,6 +531,12 @@
   <script src=" {% static 'js/main.js' %} "></script>
   <script src=" {% static 'js/floatingchat.js' %} "></script>
   <script src=" {% static 'js/modal.js' %} "></script>
+  <script>
+    function toggleDropdown() {
+      var dropdownMenu = document.querySelector(".nav-item.dropdown .dropdown-menu");
+      dropdownMenu.classList.toggle("show");
+    }
+  </script>
 </body>
 
 </html>

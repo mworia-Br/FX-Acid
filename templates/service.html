@@ -30,9 +30,14 @@
     <link href=" {% static 'css/bootstrap.min.css' %} " rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href=" {% static 'css/style.css' %} " rel="stylesheet">
     <link href=" {% static 'css/floatingchat.css' %} " rel="stylesheet">
     <link href=" {% static 'css/modal.css' %} " rel="stylesheet">
+     <!-- Template Stylesheet -->
+     <link href=" {% static 'css/style.css' %} " rel="stylesheet">
+     <script src="https://js.paystack.co/v1/inline.js"></script>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+     <!-- JavaScript Bundle with Popper -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -65,15 +70,15 @@
                         <a href="{% url 'cms:contact' %}" class="nav-item nav-link">Contact</a>
                     </div>
                     <div class="nav-item dropdown">
-                        <a href="#" class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block" data-bs-toggle="dropdown">My Account</a>
+                        <button class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block" onclick="toggleDropdown()">My Account</button>
                         <div class="dropdown-menu m-0">
-                            <a href=" {% static 'team.html' %} " class="dropdown-item">Profile</a>
-                            <a href=" {% static 'team.html' %} " class="dropdown-item">My System(s)</a>
-                            <a href=" {% static 'testimonial.html' %} " class="dropdown-item">Wallet</a>
-                            <a href=" {% static 'testimonial.html' %} " class="dropdown-item">Messages</a>
-                            <a href=" {% url 'cms:password-change' %} " class="dropdown-item">Change Password</a>
-                            <li class="dropdown-item"> </li>
-                            <a href=" {% url 'cms:logout' %} " class="dropdown-item">Log Out</a>
+                          <a href="{% static 'team.html' %}" class="dropdown-item">{{ request.user.username }}</a>
+                          <a href="{% static 'team.html' %}" class="dropdown-item">My System(s)</a>
+                          <a href="{% static 'testimonial.html' %}" class="dropdown-item">Wallet</a>
+                          <a href="{% static 'testimonial.html' %}" class="dropdown-item">Messages</a>
+                          <a href="{% url 'cms:password-change' %}" class="dropdown-item">Change Password</a>
+                          <li class="dropdown-item"> </li>
+                          <a href="{% url 'cms:logout' %}" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>
@@ -341,6 +346,12 @@
     <script src=" {% static 'js/main.js' %} "></script>
     <script src=" {% static 'js/floatingchat.js' %} "></script>
     <script src=" {% static 'js/modal.js' %} "></script>
+    <script>
+        function toggleDropdown() {
+          var dropdownMenu = document.querySelector(".nav-item.dropdown .dropdown-menu");
+          dropdownMenu.classList.toggle("show");
+        }
+      </script>
 </body>
 
 </html>

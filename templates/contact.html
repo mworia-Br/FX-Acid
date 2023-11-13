@@ -67,15 +67,15 @@
                         <a href="{% url 'cms:contact' %}" class="nav-item nav-link active">Contact</a>
                     </div>
                     <div class="nav-item dropdown">
-                        <button class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block" data-bs-toggle="dropdown">My Account</button>
+                        <button class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block" onclick="toggleDropdown()">My Account</button>
                         <div class="dropdown-menu m-0">
-                            <a href=" {% static 'team.html' %} " class="dropdown-item">Profile</a>
-                            <a href=" {% static 'team.html' %} " class="dropdown-item">My System(s)</a>
-                            <a href=" {% static 'testimonial.html' %} " class="dropdown-item">Wallet</a>
-                            <a href=" {% static 'testimonial.html' %} " class="dropdown-item">Messages</a>
-                            <a href=" {% url 'cms:password-change' %} " class="dropdown-item">Change Password</a>
-                            <li class="dropdown-item"> </li>
-                            <a href=" {% url 'cms:logout' %} " class="dropdown-item">Log Out</a>
+                          <a href="{% static 'team.html' %}" class="dropdown-item">{{ request.user.username }}</a>
+                          <a href="{% static 'team.html' %}" class="dropdown-item">My System(s)</a>
+                          <a href="{% static 'testimonial.html' %}" class="dropdown-item">Wallet</a>
+                          <a href="{% static 'testimonial.html' %}" class="dropdown-item">Messages</a>
+                          <a href="{% url 'cms:password-change' %}" class="dropdown-item">Change Password</a>
+                          <li class="dropdown-item"> </li>
+                          <a href="{% url 'cms:logout' %}" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>
@@ -250,6 +250,12 @@
 
     <!-- Template Javascript -->
     <script src=" {% static 'js/main.js' %} "></script>
+    <script>
+        function toggleDropdown() {
+          var dropdownMenu = document.querySelector(".nav-item.dropdown .dropdown-menu");
+          dropdownMenu.classList.toggle("show");
+        }
+    </script>
 </body>
 
 </html>
